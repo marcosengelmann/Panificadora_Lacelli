@@ -1,0 +1,530 @@
+/* GRUPO 8 - ARTHUR PALUDO, MARCOS ENGELMANN, IGOR THOMAS, MAURO LEITE */
+
+/* === ESTILOS GERAIS === */
+body {
+  background-color: #ebe7ce;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, serif;
+  text-align: center;
+  width: 100%;
+}
+
+/* === ESTRUTURA GERAL DA NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #ebe7ce;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === NAVBAR TOPO === */
+.navbar-topo {
+  position: relative;
+  padding: 40px 60px;
+  background-color: #ebe7ce;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 500;
+}
+
+.navbar-topo .logo.grande {
+  height: 120px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-topo .navbar-center {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.navbar-topo .nav-btn.espacada {
+  padding: 14px 30px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.navbar-topo .navbar-right .social-icon.grande {
+  width: 50px;
+  margin-left: 20px;
+  transition: transform 0.2s ease;
+}
+
+/* === NAVBAR SCROLL === */
+.navbar-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ebe7ce;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-scroll.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.logo {
+  height: 80px;
+  cursor: pointer;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-btn {
+  background-color: #1f3698;
+  color: #ebe7ce;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:hover,
+.social-icon:hover,
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-right .social-icon {
+  width: 40px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* === MENU HAMBURGUER === */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 2001;
+}
+
+.menu-toggle span {
+  height: 4px;
+  background: #1f3698;
+  border-radius: 2px;
+}
+
+/* Garante que menu-mobile só apareça no mobile */
+.menu-mobile {
+  display: none;
+}
+
+/* === MENU MOBILE === */
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #ebe7ce;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 2000;
+}
+
+.menu-mobile a {
+  padding: 10px;
+  color: #1f3698;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-mobile a:hover {
+  background-color: #1f3698;
+  color: #ebe7ce;
+  border-radius: 10px;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 1060px) {
+  .navbar-center,
+  .navbar-right {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+  }
+
+  /* Garante alinhamento com logo */
+  .navbar .menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  .menu-toggle {
+  display: flex !important;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 2001;
+}
+
+  .navbar-topo .logo.grande {
+  height: 60px;
+}
+
+.navbar-scroll .logo {
+  height: 50px;
+}
+
+  .menu-mobile {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #ebe7ce;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2000;
+  }
+
+  .menu-mobile a {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #1f3698;
+  }
+
+  .menu-mobile a:hover {
+    background-color: #1f3698;
+    color: #ebe7ce;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn,
+  .nav-btn.espacada {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .logo,
+  .logo.grande {
+    height: 60px;
+  }
+}
+
+/* === LINKS E ÍCONES === */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a img {
+  border: none;
+}
+
+
+/* carrossel */
+.carrossel-section {
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.carrossel-titulo {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1f3698;
+}
+
+.carrossel-linha {
+  width: 70%;
+  height: 2px;
+  background-color: #1f3698;
+  margin: 0 auto 20px auto;
+}
+
+.carrossel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carrossel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrossel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 calc(100% / 3 - 13.34px); /* para 3 slides visíveis com gap */
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 calc(100% / 2 - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    flex: 0 0 100%;
+  }
+}
+
+/* historia */
+.historia-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.historia-titulo {
+  font-size: 28px;
+  color: #1f3698;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.historia-linha {
+  width: 70px;
+  height: 2px;
+  background-color: #1f3698;
+  margin: 0 auto 30px auto;
+}
+
+.historia-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* <- isso centraliza a imagem verticalmente */
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.historia-texto {
+  flex: 1;
+  font-size: 18px;
+  color: #1f3698;
+  text-align: left;
+  line-height: 1.8;
+  white-space: pre-line;
+  min-width: 280px;
+}
+
+.historia-img {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.historia-img img.vovo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .historia-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .historia-texto {
+    text-align: justify;
+  }
+}
+@media (max-width: 768px) {
+  .historia-img img.vovo {
+    max-width: 80%;
+    max-width: 300px;
+  }
+}
+
+/* rodape */
+.footer {
+  background-color: #ebe7ce;
+  padding: 40px 20px;
+  font-family: Georgia, serif;
+  color: #1f3698;
+  border-top: 2px solid #ccc;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1 1 300px;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.footer-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.footer a {
+  color: #1f3698;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-right h3 {
+  margin-bottom: 10px;
+}
+
+.footer-social img {
+  width: 32px;
+  margin-right: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+  }
+}
+
+/*produto*/
+.produto-detalhe {
+  padding: 60px 20px;
+  background-color: #ebe7ce;
+}
+
+.produto-detalhe {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .produto-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .produto-imagem {
+      flex: 1 1 300px;
+    }
+
+    .produto-imagem img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .produto-info {
+      flex: 1 1 400px;
+      color: #1f3698;
+      text-align: left;
+    }
+
+    .produto-titulo {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .produto-caracteristicas {
+      list-style: disc;
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .separador {
+      height: 2px;
+      background-color: #1f3698;
+      margin: 40px 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .produto-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .produto-info {
+        text-align: center;
+      }
+
+      .produto-caracteristicas {
+        padding-left: 0;
+        list-style: none;
+      }
+    }
